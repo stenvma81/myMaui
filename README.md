@@ -1,2 +1,2 @@
 # myMaui
-Repo for testin .NET and Maui for mobile app development
+Repo for testing .NET and Maui for mobile app development.
