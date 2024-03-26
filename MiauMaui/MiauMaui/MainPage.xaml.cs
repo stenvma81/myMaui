@@ -1,15 +1,19 @@
 ﻿namespace MiauMaui;
+using MiauMaui.ViewModels;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    MainViewModel viewModel;
+    int count = 0;
 	string swappable = "Noctropolis";
     bool _isRotating = false;
 
     public MainPage()
 	{
 		InitializeComponent();
-	}
+
+        BindingContext = new MainViewModel();
+    }
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
@@ -46,7 +50,6 @@ public partial class MainPage : ContentPage
             _isRotating = true; // Set rotation flag
         }
     }
-
 
 }
 

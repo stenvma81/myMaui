@@ -2,13 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiauMaui.MainPage">
-
     <ScrollView>
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
 
+            <!-- Your existing content -->
             <Image
                 x:Name="mainImage"
                 Source="dotnet_bot.png"
@@ -25,27 +25,36 @@
             <Label
                 Text="Welcome to .NET Multi-platform App UI. I am the asshole trying to keep the whole fucking shit floating!"
                 SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
             <Button
                 x:Name="CounterBtn"
                 Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
 
             <Label
                 x:Name="CounterText"
                 Text="Tää on vittu nappikauppaa."
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
+            <!-- CollectionView for displaying TodoItem instances -->
+            <CollectionView x:Name="dataClassCollectionView" ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Title}"
+                                   VerticalOptions="Center" />
+                            <CheckBox IsChecked="{Binding IsDone}"
+                                      VerticalOptions="Center" />
+                            <!-- Add other UI elements or bindings as needed -->
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>
 
